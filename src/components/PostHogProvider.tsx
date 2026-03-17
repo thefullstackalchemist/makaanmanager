@@ -2,7 +2,12 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { initPostHog, capturePageView, captureEvent } from "@/services/posthog";
+import {
+  initPostHog,
+  capturePageView,
+  captureEvent,
+  requestAndCaptureLocation,
+} from "@/services/posthog";
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -15,6 +20,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
     enteredAt.current = Date.now();
     activePath.current = pathname;
     capturePageView(window.location.href);
+    requestAndCaptureLocation();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
