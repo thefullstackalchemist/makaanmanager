@@ -1,33 +1,124 @@
+/* ============================================================
+   MAKAAN MANAGER — GLOBAL THEME & BASE STYLES
+   ============================================================ */
+
+/* --- Light Mode (default) ---------------------------------- */
+:root,
+[data-theme="light"] {
+  --color-bg: #F9F7F3;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F3F1ED;
+  --color-surface-raised: #FFFFFF;
+
+  --color-primary: #B8842A;
+  --color-primary-subtle: #FEF3E2;
+  --color-primary-hover: #9E7022;
+  --color-primary-border: rgba(184, 132, 42, 0.3);
+
+  --color-text: #1A1B2E;
+  --color-text-secondary: #5C606E;
+  --color-text-muted: #9CA0AC;
+  --color-text-on-primary: #FFFFFF;
+
+  --color-border: rgba(26, 27, 46, 0.08);
+  --color-border-strong: rgba(26, 27, 46, 0.15);
+
+  --color-navy: #1A1B2E;
+  --color-navy-subtle: rgba(26, 27, 46, 0.04);
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.10);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.12);
+  --shadow-primary: 0 8px 24px rgba(184, 132, 42, 0.25);
+}
+
+/* --- Dark Mode -------------------------------------------- */
+[data-theme="dark"] {
+  --color-bg: #0C0D15;
+  --color-surface: #13141E;
+  --color-surface-alt: #1A1B28;
+  --color-surface-raised: #1E2030;
+
+  --color-primary: #D4A84B;
+  --color-primary-subtle: rgba(212, 168, 75, 0.12);
+  --color-primary-hover: #E8BD60;
+  --color-primary-border: rgba(212, 168, 75, 0.3);
+
+  --color-text: #E8E9F0;
+  --color-text-secondary: #8E92A4;
+  --color-text-muted: #5E6278;
+  --color-text-on-primary: #0C0D15;
+
+  --color-border: rgba(232, 233, 240, 0.07);
+  --color-border-strong: rgba(232, 233, 240, 0.13);
+
+  --color-navy: #E8E9F0;
+  --color-navy-subtle: rgba(232, 233, 240, 0.04);
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.7);
+  --shadow-primary: 0 8px 24px rgba(212, 168, 75, 0.2);
+}
+
+/* --- Shared Design Tokens ---------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 36px;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s ease;
+  --transition-slow: 0.4s ease;
+
+  --container-max: 1200px;
+  --header-height: 72px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
+/* --- Base Reset -------------------------------------------- */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  color-scheme: light dark;
+}
+
+body {
+  font-family: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 100vw;
+  overflow-x: hidden;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), Georgia, serif;
+  line-height: 1.2;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+p {
+  line-height: 1.75;
 }
 
 a {
@@ -35,8 +126,124 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* --- Layout Utilities -------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
   }
 }
+
+/* --- Button Globals ---------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-jakarta), sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  white-space: nowrap;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-primary);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-subtle);
+}
+
+/* --- Animations -------------------------------------------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes floatOdd {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes floatEven {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+/* Scroll-triggered animation base */
+.animate {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
