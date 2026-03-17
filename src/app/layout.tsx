@@ -33,16 +33,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* Adaptive favicon — browser picks based on system color scheme */}
-        <link
-          rel="icon"
-          href="/logo_light.png"
-          media="(prefers-color-scheme: light)"
-        />
-        <link
-          rel="icon"
-          href="/logo_dark.png"
-          media="(prefers-color-scheme: dark)"
-        />
+        <link rel="icon" href="/favicon-light.png" type="image/png" media="(prefers-color-scheme: light)" />
+        <link rel="icon" href="/favicon-dark.png" type="image/png" media="(prefers-color-scheme: dark)" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         {/* Prevent theme flash on load */}
         <script
           dangerouslySetInnerHTML={{
