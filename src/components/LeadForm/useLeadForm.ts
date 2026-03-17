@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { submitLead, LeadData } from "@/services/leadService";
-import { captureEvent } from "@/services/posthog";
+import { captureEvent, identifyUser, setPersonProperties } from "@/services/posthog";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -44,7 +44,34 @@ export function useLeadForm(defaultService?: string) {
       const ok = await submitLead(formData);
       if (ok) {
         setStatus("success");
-        captureEvent("lead_submitted", { services: formData.services });
+
+        // Capture full form details
+        captureEvent("lead_form_submitted", {
+          services: formData.services,
+          name: formData.name,
+          email: formData.email,
+          mobile: formData.mobile,
+          has_mobile: !!formData.mobile,
+        });
+
+        // Identify the user and mark is_lead at the person level when mobile is present
+        if (formData.mobile) {
+          const distinctId = formData.email || formData.mobile;
+          identifyUser(distinctId, {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.mobile,
+            is_lead: true,
+          });
+        } else if (formData.email) {
+          // No mobile — still identify by email and set person properties
+          identifyUser(formData.email, {
+            name: formData.name,
+            email: formData.email,
+          });
+          setPersonProperties({ is_lead: true });
+        }
+
         setFormData({ ...INITIAL, services: defaultService ? [defaultService] : [] });
       } else {
         setStatus("error");

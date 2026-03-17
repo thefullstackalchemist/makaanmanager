@@ -1,16 +1,30 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import { Service } from "@/lib/data/services";
+import { captureEvent } from "@/services/posthog";
 import styles from "./ServiceCard.module.css";
 
 interface Props {
   service: Service;
+  source?: string;
 }
 
-export function ServiceCard({ service }: Props) {
+export function ServiceCard({ service, source = "services_section" }: Props) {
   return (
-    <Link href={service.href} className={styles.card}>
+    <Link
+      href={service.href}
+      className={styles.card}
+      onClick={() =>
+        captureEvent("service_clicked", {
+          service_id: service.id,
+          service_title: service.title,
+          source,
+        })
+      }
+    >
       <div className={styles.imageWrap}>
         <Image
           src={service.image}

@@ -26,7 +26,7 @@ export function RelatedServices({ currentId }: Props) {
         <div className={styles.relatedGrid}>
           {others.map((service, i) => (
             <AnimatedSection key={service.id} delay={i * 80}>
-              <ServiceCard service={service} />
+              <ServiceCard service={service} source="related_services" />
             </AnimatedSection>
           ))}
         </div>

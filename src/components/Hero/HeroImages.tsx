@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import { SERVICES } from "@/lib/data/services";
+import { captureEvent } from "@/services/posthog";
 import styles from "./Hero.module.css";
 
 export function HeroImages() {
@@ -14,6 +17,13 @@ export function HeroImages() {
           className={`${styles.imageItem} ${i % 2 !== 0 ? styles.imageItemOffset : ""}`}
           style={{ animationDelay: `${0.3 + i * 0.1}s` }}
           aria-label={`Learn about ${service.title}`}
+          onClick={() =>
+            captureEvent("service_clicked", {
+              service_id: service.id,
+              service_title: service.title,
+              source: "hero_grid",
+            })
+          }
         >
           <Image
             src={service.image}

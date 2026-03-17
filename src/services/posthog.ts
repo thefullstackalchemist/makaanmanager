@@ -32,10 +32,17 @@ export function captureEvent(
   posthog.capture(name, properties);
 }
 
+/** Identify the user and set person-level properties. */
 export function identifyUser(
-  userId: string,
-  properties?: Record<string, unknown>
+  distinctId: string,
+  personProperties?: Record<string, unknown>
 ) {
   if (!initialized) return;
-  posthog.identify(userId, properties);
+  posthog.identify(distinctId, personProperties);
+}
+
+/** Set or update person-level properties without changing the distinct ID. */
+export function setPersonProperties(properties: Record<string, unknown>) {
+  if (!initialized) return;
+  posthog.setPersonProperties(properties);
 }
