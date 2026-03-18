@@ -14,9 +14,9 @@ export function HeroContent() {
       </h1>
 
       <p className={styles.subheadline}>
-        From late-night repairs to difficult tenants — we handle it all.
-        You stay informed. You stay in control.
-        You don&apos;t have to be there.
+        Whether you&apos;re two streets away or two time zones apart —
+        your house is looked after, protected, and kept
+        exactly as if you never left.
       </p>
 
       <div className={styles.ctas}>
