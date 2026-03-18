@@ -53,14 +53,14 @@ export const SERVICES: Service[] = [
   },
   {
     id: "interior-design",
-    title: "Home Interiors",
+    title: "House Interiors",
     description:
       "You come back to a space that surprises you. Every decision, every detail, every coat of paint — handled.",
     image: "/services/interior-design.png",
     href: "/services/interior-design",
     tagline: "Spaces that inspire",
     longDescription:
-      "Your home should reflect who you are. Our interior design service blends aesthetics with functionality — from initial design concepts to complete on-site execution, all while keeping you informed with regular remote updates so you never feel out of the loop.",
+      "Your house should reflect who you are. Our interior design service blends aesthetics with functionality — from initial design concepts to complete on-site execution, all while keeping you informed with regular remote updates so you never feel out of the loop.",
     features: [
       "Professional design consultation",
       "Paint and wallpaper selection & execution",
@@ -100,7 +100,7 @@ export const SERVICES: Service[] = [
     href: "/services/house-maintenance",
     tagline: "Always move-in ready",
     longDescription:
-      "A well-maintained property holds its value and attracts better tenants. Our maintenance service ensures your home is always in top condition — whether you live there, rent it out, or keep it as an investment — through scheduled visits and on-demand support.",
+      "A well-maintained property holds its value and attracts better tenants. Our maintenance service ensures your house is always in top condition — whether you rent it out or keep it as an investment — through scheduled visits and on-demand support.",
     features: [
       "Minor plumbing and electrical repairs",
       "Repainting and surface touch-ups",
@@ -140,7 +140,7 @@ export const SERVICES: Service[] = [
     href: "/services/deep-clean",
     tagline: "Fresh start, every time",
     longDescription:
-      "The period between tenants is critical. A pristine, well-presented property attracts better tenants faster and commands higher rent. Our tenant transition service ensures every corner is spotless, every repair is done, and every new tenant walks into a home they're proud of.",
+      "The period between tenants is critical. A pristine, well-presented property attracts better tenants faster and commands higher rent. Our tenant transition service ensures every corner is spotless, every repair is done, and every new tenant walks into a house they're proud of.",
     features: [
       "Full property deep cleaning",
       "Damage assessment and documentation",

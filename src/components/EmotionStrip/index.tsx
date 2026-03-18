@@ -12,7 +12,7 @@ const BEATS = [
   },
   {
     trigger: "Months without a visit?",
-    resolution: "Your home looks like you never left.",
+    resolution: "Your house looks like you never left.",
   },
 ];
 

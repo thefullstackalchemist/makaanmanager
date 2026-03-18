@@ -8,15 +8,15 @@ export function HeroContent() {
       <div className={styles.badge}>Property Care, Reimagined</div>
 
       <h1 className={styles.headline}>
-        Far from home.
+        You&apos;re away.
         <br />
-        <em className={styles.headlineAccent}>Never far from care.</em>
+        <em className={styles.headlineAccent}>Your house would never know.</em>
       </h1>
 
       <p className={styles.subheadline}>
-        Whether you&apos;re two streets away or two time zones apart —
-        your property is looked after, maintained, and loved
-        exactly as if you never left.
+        From late-night repairs to difficult tenants — we handle it all.
+        You stay informed. You stay in control.
+        You don&apos;t have to be there.
       </p>
 
       <div className={styles.ctas}>
