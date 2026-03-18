@@ -148,6 +148,17 @@
     var(--shadow-xl);
 }
 
+/* Dark mode frost overlay on hero images */
+:global([data-theme="dark"]) .imageItem::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(180, 190, 210, 0.15);
+  backdrop-filter: blur(0.5px);
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* Zoom out on hover — start scaled up, reveal full image on hover */
 .imageItem img {
   transform: scale(1.12);
@@ -163,6 +174,7 @@
   position: absolute;
   top: 12px;
   right: 12px;
+  z-index: 1;
   width: 32px;
   height: 32px;
   border-radius: var(--radius-full);
@@ -185,6 +197,7 @@
   position: absolute;
   bottom: 12px;
   left: 12px;
+  z-index: 1;
   padding: 5px 12px;
   border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.92);
