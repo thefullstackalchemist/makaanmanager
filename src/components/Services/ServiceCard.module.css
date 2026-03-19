@@ -40,7 +40,7 @@
 }
 
 :global([data-theme="dark"]) .imageWrap {
-  background: rgb(228, 232, 238);
+  background: rgba(228, 232, 238, 0.4);
 }
 
 :global([data-theme="dark"]) .imageWrap img {
