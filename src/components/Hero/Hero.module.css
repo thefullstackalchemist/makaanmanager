@@ -148,15 +148,13 @@
     var(--shadow-xl);
 }
 
-/* Dark mode frost overlay on hero images */
-:global([data-theme="dark"]) .imageItem::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(240, 242, 245, 0.32);
-  backdrop-filter: blur(0.5px);
-  pointer-events: none;
-  z-index: 0;
+/* Dark mode: light background behind the image so it feels elevated */
+:global([data-theme="dark"]) .imageItem {
+  background: rgb(228, 232, 238);
+}
+
+:global([data-theme="dark"]) .imageItem img {
+  opacity: 0.88;
 }
 
 /* Zoom out on hover — start scaled up, reveal full image on hover */
